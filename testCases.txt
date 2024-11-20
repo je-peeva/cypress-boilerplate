@@ -1,0 +1,120 @@
+1. Scenario: Verify first answer in the FAQ section is expanded by default 
+
+Given the Framer site is loaded
+When I click on 'Pricing' button
+And I see the Pricing page
+And I scroll to FAQ section
+Then I see the FAQ section
+And First displayed answer should be expanded
+And All other answers should be collapsed
+
+
+2. Scenario: Verify each of the questions in FAQ sections change its state when clicking on them
+
+Given the Framer site is loaded
+And I click on 'Pricing' button
+And I see the Pricing page
+And I see the FAQ section
+When I click on 2nd question once
+Then Answer to the same question should be expanded
+And Plus icon in the question header should become cross icon
+And All other answers should keep their initial state
+When I click on 2nd question twice
+Then Answer to the same question should be collapsed
+And Cross icon in the question header should become plus icon
+And All other answers should keep their initial state
+
+
+3. Scenario: Verify user can successfully sign up with valid creadentials using Sign up button
+
+Given the Framer site is loaded
+And I click on 'Sign up' button on the main page
+And I populate valid credentials in sign up modal
+When I click on 'Sign up' button in the sign up modal
+Then User should be successfully signed up
+
+
+4. Scenario: Verify subscription to newsletters is successful
+
+Given the Framer site is loaded
+And I scroll to the bottom of the components page
+When I populate valid email in subscription section
+And I click on 'Sign up' button in subscription section
+Then User should be successfully signed up for newsletters
+
+
+5. Scenario Outline: Verify clicking on logo icon navigates to the main page
+
+Given the Framer site is loaded
+And I click on <pageName> button
+When I click on logo icon in the left corner in the header
+Then Main page should be displayed
+And Page name should be removed from url path
+
+Examples: 
+          |pageName  |
+	      |Components|
+	      |Pricing   |
+	      |Updates   |
+
+
+6. Scenario: Verify "Made in Framer" button navigates to framer.com in new tab
+
+Given the Framer site is loaded
+When I click on 'Made in Framer' button in the right bottom corner
+Then framar.com should be displayed in new browser tab
+And Initial page should remain displayed in the 1st browser tab
+
+
+7. Scenario: Verify pricing plans respect the selected time period
+
+Given the Framer site is loaded
+And I click on 'Components' button
+And I see Components page
+And I click on spline-watermark
+When I click on 'Pricing' menu
+And I click on 'Monthly' toggle
+Then The amount of the pricing plans below should be changed accordingly
+
+
+8. Scenario Outline: Verify cookie banner remains displayed while scrolling the page
+
+Given the Framer site is loaded
+And I click on 'Components' button
+And I see Components page
+When I click on spline-watermark
+Then Cookie banner should be displayed
+When I scroll the page <scrollDirection>
+Then Cookie banner should remain displayed
+
+Examples: 
+        |scrollDirection|
+	    |up             |
+	    |down           |
+
+
+9. Scenario Outline: Verify cookie banner disappears when clicking on the buttons within
+
+Given the Framer site is loaded
+And I click on 'Components' button
+And I see Components page
+And I click on spline-watermark
+Then Cookie banner should be displayed
+When I click on <cookieBannerButton>
+Then The cookie banner should disappear 
+
+Examples: 
+        |cookieBannerButton|
+	    |Don't allow       |
+	    |Got it            |
+
+
+10. Scenario: Verify clicking on announcement content navigates to youtube page
+
+Given the Framer site is loaded
+And I click on 'Components' button
+And I see Components page
+And I click on spline-watermark
+When I click anywhere within the announcement content
+Then https://www.youtube.com/watch?v=3r_Z-hilAyc should be displayed in new browser tab
+And Initial page should remain displayed in the 1st browser tab 

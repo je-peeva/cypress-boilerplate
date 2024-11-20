@@ -1,0 +1,19 @@
+[Bug 1] A validation message for the e-mail input respects the password value instead of e-mail value
+
+[Bug 2] Password value in sign-up modal is not encrypted
+
+[Bug 3] Get the app button on main page displays Sign up modal
+
+[Bug 4] Switchin the toggle on a single plan auto-switches the toggle for plans for all time periods in Pricing section on Components page
+
+[Bug 5] Content of the Components page overlaps the spline-watermark page
+
+[Bug 6] Not able to subscribe for newsletters
+
+[Bug 7] Hover style of dropdown menus in spline-watermark page is misplaced when the page is resized
+
+[Bug 8] 'Billed yearly' toggle in pricing plans on Pricing page are not functional
+
+[Bug 9] Social media links at the bottom of the page are not functional
+
+[Bug 10] Most of the buttons in all pages are not functional
